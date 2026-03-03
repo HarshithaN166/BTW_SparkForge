@@ -27,7 +27,7 @@ The system operates in four main stages:
 
 # Team Members  
 - Bhoomika N
-- Chaitanya D  
+- Harshitha N  
 - Pooja V
-- Harshitha N
+- Chaitanya D
 
