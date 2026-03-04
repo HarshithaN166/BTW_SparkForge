@@ -1,0 +1,31 @@
+#🚀 FocusFlow
+🤖 AI That Protects Your Deep Work
+
+FocusFlow is an AI-powered productivity web app that intelligently filters developer interruptions and protects deep work sessions. It analyzes notifications, classifies urgency, and blocks non-essential distractions when Focus Mode is enabled.
+
+#✨ Features
+
+🧠 Smart urgency classification (keyword scoring)
+🔐 Focus Mode to block non-urgent notifications
+📊 Real-time productivity dashboard
+🎯 Dynamic Focus Score calculation
+🔄 Developer interruption simulation
+🌙 Modern glassmorphism SaaS UI
+📱 Fully responsive design
+
+
+#🛠 Tech Stack
+HTML
+CSS
+Vanilla JavaScript
+
+Lightweight. Fast. Framework-free.
+
+
+#📊 Focus Score Formula
+Focus Score = (Blocked / Total) × 100
+
+
+#🚀 Live Demo
+👉 https://github.com/HarshithaN166/BTW_SparkForge
+
