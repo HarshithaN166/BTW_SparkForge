@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+.hero button {
+    padding: 12px 28px;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    transform: scale(1.05);
+}
+
+/* APP SECTION */
+.app {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px;
+}
+
+.card {
+    width: 320px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+textarea {
+    width: 100%;
+    height: 90px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: #0ea5e9;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* RESULT */
+.result {
+    margin-top: 15px;
+    min-height: 40px;
+    font-weight: bold;
+}
+
+.urgent {
+    color: #ff4d4d;
+}
+
+.blocked {
+    color: #22c55e;
+}
+
+/* DASHBOARD */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* PROGRESS */
+.progress-container {
+    position: relative;
+    text-align: center;
+}
+
+.bg-circle {
+    fill: none;
+    stroke: #334155;
+    stroke-width: 12;
+}
+
+.progress-circle {
+    fill: none;
+    stroke: #00e5ff;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 377;
+    stroke-dashoffset: 377;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.6;
+}
+
+/* TOGGLE */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #555;
+  border-radius: 34px;
+  height: 100%;
+  width: 100%;
+  transition: .4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #00e5ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
