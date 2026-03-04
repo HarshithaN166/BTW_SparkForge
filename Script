@@ -1,0 +1,92 @@
+let total = 0;
+let urgentCount = 0;
+let blockedCount = 0;
+
+const urgentKeywords = ["deadline","urgent","production","client","asap","issue","server","bug","hotfix","critical"];
+const casualKeywords = ["meme","lunch","party","reel","forward","joke","casual"];
+
+const messages = [
+"Production server down",
+"Client needs hotfix ASAP",
+"Check this meme",
+"Lunch at 2?",
+"Deadline moved to tomorrow",
+"Bug in deployment"
+];
+
+function scrollToApp() {
+    document.getElementById("appSection").scrollIntoView({ behavior: "smooth" });
+}
+
+function classify(message) {
+    let score = 0;
+    const msg = message.toLowerCase();
+
+    urgentKeywords.forEach(word => {
+        if(msg.includes(word)) score += 2;
+    });
+
+    casualKeywords.forEach(word => {
+        if(msg.includes(word)) score -= 1;
+    });
+
+    const priority = score >= 2 ? "URGENT" : "NON-URGENT";
+    const confidence = Math.min(Math.abs(score) * 20, 100);
+
+    return {
+        priority,
+        confidence,
+        reply: priority === "NON-URGENT"
+            ? "Auto-reply: I'm currently in deep focus mode."
+            : "Marked as urgent. Immediate attention required."
+    };
+}
+
+function analyze(inputMessage = null) {
+
+    const message = inputMessage || document.getElementById("message").value;
+    if(!message) return;
+
+    const focusOn = document.getElementById("focusToggle").checked;
+    const result = classify(message);
+
+    total++;
+
+    const resultDiv = document.getElementById("result");
+
+    if(focusOn && result.priority === "NON-URGENT") {
+        blockedCount++;
+        resultDiv.innerHTML = result.reply;
+        resultDiv.className = "result blocked";
+    } else if(result.priority === "URGENT") {
+        urgentCount++;
+        resultDiv.innerHTML = "URGENT (" + result.confidence + "% confidence)";
+        resultDiv.className = "result urgent";
+    } else {
+        resultDiv.innerHTML = "Allowed";
+        resultDiv.className = "result";
+    }
+
+    updateDashboard();
+}
+
+function updateDashboard() {
+    document.getElementById("total").innerText = total;
+    document.getElementById("urgent").innerText = urgentCount;
+    document.getElementById("blocked").innerText = blockedCount;
+
+    const score = total === 0 ? 0 : Math.round((blockedCount / total) * 100);
+    document.getElementById("score").innerText = score + "%";
+
+    const circle = document.getElementById("progressCircle");
+    const offset = 377 - (377 * score / 100);
+    circle.style.strokeDashoffset = offset;
+}
+
+function startSimulation() {
+    let index = 0;
+    setInterval(() => {
+        analyze(messages[index % messages.length]);
+        index++;
+    }, 3000);
+}
