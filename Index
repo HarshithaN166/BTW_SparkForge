@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusFlow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">FocusFlow</div>
+    <div class="toggle-wrapper">
+        <span>Focus Mode</span>
+        <label class="switch">
+            <input type="checkbox" id="focusToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Protect Your Deep Work with AI</h1>
+    <p>Intelligent interruption filtering built for developers.</p>
+    <button onclick="scrollToApp()">Start Focusing</button>
+</section>
+
+<section class="app" id="appSection">
+
+    <div class="card">
+        <h2>Notification Analyzer</h2>
+        <textarea id="message" placeholder="Enter incoming notification..."></textarea>
+        <button onclick="analyze()">Analyze</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <div class="card">
+        <h2>Simulation</h2>
+        <button onclick="startSimulation()">Simulate Developer Interruptions</button>
+    </div>
+
+    <div class="card dashboard">
+        <h2>Productivity Dashboard</h2>
+
+        <div class="stats">
+            <div class="stat">
+                <span id="total">0</span>
+                <p>Total</p>
+            </div>
+            <div class="stat">
+                <span id="urgent">0</span>
+                <p>Urgent</p>
+            </div>
+            <div class="stat">
+                <span id="blocked">0</span>
+                <p>Blocked</p>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <svg width="140" height="140">
+                <circle cx="70" cy="70" r="60" class="bg-circle"/>
+                <circle cx="70" cy="70" r="60" class="progress-circle" id="progressCircle"/>
+            </svg>
+            <div class="progress-text" id="score">0%</div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+Built for Hackathon 2026 • FocusFlow
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
